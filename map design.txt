@@ -1,18 +1,6 @@
-<Wall>:
-	canvas:
-		Color:
-			rgba: 0.2,0.1,0.9,1
-		Rectangle:
-			size: self.size
-			pos: self.pos
-
-<GamePlay>:
-	canvas:
-		Rectangle:
-			source: 'img/background.jpg'
-			size: self.size
-			pos: self.pos
-	Wall:
+This going to be my pacman map but this still in process to make the project progressing i need to use the original map
+    
+    Wall:
 		size_hint: root.ps/root.ww, 1/100
 		x: 0
 		y: (3*root.ps + 0.04*root.wh)/2+36 - root.wh/100
