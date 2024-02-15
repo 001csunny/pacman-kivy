@@ -1,9 +1,14 @@
+from kivy.config import Config
+Config.set('graphics', 'resizable', False)
+
 from kivy.app import App
 from kivy.uix.screenmanager import Screen
 from kivy.core.window import Window
 from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty
 
+# Window.size = (1200,400)
+#if window size bugged use this size instead
 Window.size = (960,320)
 
 class GamePlay(Screen):
@@ -26,4 +31,5 @@ class PacmanApp(App):
     def build(self):
         return GamePlay()
 
-PacmanApp().run()
+if __name__ == "__main__":
+    PacmanApp().run()
