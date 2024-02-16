@@ -7,11 +7,12 @@ from kivy.uix.screenmanager import Screen
 from kivy.core.window import Window
 from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty
+from player import *
 
-# Window.size = (1200,400)
+Window.size = (1200,400)
 
 # if window size bugged use this size instead
-Window.size = (960, 320)
+#Window.size = (960, 320)
 
 
 class GamePlay(Screen):
@@ -24,6 +25,8 @@ class GamePlay(Screen):
 
     def on_touch_move(self, touch):
         print("ตำแหน่งหน้าต่าง:", Window.mouse_pos)
+        
+    pacman = Player()
 
 
 class Wall(Widget):
