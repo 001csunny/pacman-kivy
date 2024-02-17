@@ -21,6 +21,7 @@ class GamePlay(Screen):
     ww = NumericProperty(1200)
     wh = NumericProperty(400)
 
+
     def on_size(self, *args):
         print("Window size:", self.width, self.height)
 
@@ -47,7 +48,9 @@ class GamePlay(Screen):
             self.pacman.velocity=(-1,0)
         elif keycode[1] == 'right':
             self.pacman.velocity=(1,0)
+
         return True
+    
     def update(self, dt):
         self.pacman.move()
 class Wall(Widget):
