@@ -1,50 +1,38 @@
 This going to be my pacman map but this still in process to make the project progressing i need to use the original map
+     Wall:
+		size_hint: (root.ww/2-root.ps/2)/root.ww, 1/100
+		x: 0
+		y: root.wh/2-root.ps/2-1/100
+
+	Wall:
+        size_hint: (root.ww/2-root.ps/2)/root.ww, 1/100
+        x: 0
+        y: root.wh/2+root.ps/2
+
+    Wall:
+        size_hint: (root.ww/2-root.ps/2)/root.ww, 1/100
+        x: root.ww/2+root.ps/2
+        y:root.wh/2-root.ps/2-1/100
+
+    Wall:
+        size_hint: (root.ww/2-root.ps/2)/root.ww, 1/100
+        x: root.ww/2+root.ps/2
+        y: root.wh/2+root.ps/2
+    #-----------------------------------------------------------------
+    Wall:
+        size_hint: 1/300,(root.wh/2-root.ps/2+1/100)/root.wh
+        x: root.ww/2-root.ps/2-10/3
+        y: 0
+    Wall:
+        size_hint: 1/300, (root.wh/2-root.ps/2+1/100)/root.wh
+        x: root.ww/2+root.ps/2
+        y: 0
+    Wall:
+        size_hint: 1/300, (root.wh/2-root.ps/2+1/100)/root.wh
+        x: root.ww/2-root.ps/2
+        y: root.wh/2+root.ps/2
     
     Wall:
-		size_hint: root.ps/root.ww, 1/100
-		x: 0
-		y: (3*root.ps + 0.04*root.wh)/2+36 - root.wh/100
-	Wall:
-        size_hint: root.ps/root.ww , 1/100
-        x: 0
-        y: (3*root.ps + 0.04*root.wh)/2 + 36  + root.ps
-    Wall:
-        size_hint: root.ps/root.ww , 1/100
-        x: root.ww -root.ps
-        y:(3*root.ps + 0.04*root.wh)/2 + 36 - root.wh/100
-    Wall:
-        size_hint: root.ps/root.ww , 1/100
-        x: root.ww -root.ps
-        y: (3*root.ps + 0.04*root.wh)/2 + 36 + root.ps
-    Wall:
-        size_hint: 1/100, (3*root.ps + 0.04*root.wh)/(2*root.wh)
-        x: root.ps
-        y: 36
-	Wall:
-        size_hint: 1/100, (3*root.ps + 0.04*root.wh)/(2*root.wh)
-        x: 0 +root.ps
-        y:(3*root.ps + 0.04*root.wh)/2 + 36 + root.ps
-    Wall:
-        size_hint: 1/100, (3*root.ps + 0.04*root.wh)/(2*root.wh)
-        x: root.ww - root.ps - root.ww/100
-        y: 36
-    Wall:
-        size_hint: 1/100, (3*root.ps + 0.04*root.wh)/(2*root.wh)
-        x: root.ww -root.ps -root.ww/100
-        y:(3*root.ps + 0.04*root.wh)/2 + 36 + root.ps
-    Wall:
-        size_hint: 1 - 2*root.ps/root.ww, 0.01
-        x: root.ps
-        y: 36
-	Wall:
-        size_hint: 1 - 2*root.ps/root.ww, 0.01
-        x: root.ps
-        y: 0.99*root.wh -36
-    Wall:
-        size_hint: root.ps/root.ww + 0.01 + 0.5, 0.01
-        x: 2*root.ps + root.width/100
-        y: root.ps + 36 + root.height/100
-    Wall:
-        size_hint: root.ps/root.ww + 1/100 + 0.5, 0.01
-        x: 2*root.ps + root.width/100
-        y: 2*root.ps + 36 + 2*root.height/100
+        size_hint: 1/300, (root.wh/2-root.ps/2)/root.wh
+        x: root.ww/2+root.ps/2
+        y: root.wh/2+root.ps/2

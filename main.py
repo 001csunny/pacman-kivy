@@ -10,10 +10,10 @@ from kivy.properties import NumericProperty
 from player import *
 from kivy.clock import Clock
 
-Window.size = (1200,400)
+# Window.size = (1200,400)
 
 # if window size bugged use this size instead
-#Window.size = (960, 320)
+Window.size = (960, 320)
 
 
 class GamePlay(Screen):
@@ -53,6 +53,7 @@ class GamePlay(Screen):
     
     def update(self, dt):
         self.pacman.move()
+        
 class Wall(Widget):
     pass
 

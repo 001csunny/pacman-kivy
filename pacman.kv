@@ -21,44 +21,86 @@
 			pos: self.pos
 
     pacman: pacman_player
-    
+
+#-----------------------------Left Portal Wall Pair--------------------------
 	Wall:
-		size_hint: (root.ww/2-root.ps/2)/root.ww, 1/100
+		size_hint: root.ps/root.ww, 1/100
 		x: 0
 		y: root.wh/2-root.ps/2-1/100
-
 	Wall:
-        size_hint: (root.ww/2-root.ps/2)/root.ww, 1/100
+        size_hint: root.ps/root.ww, 1/100
         x: 0
         y: root.wh/2+root.ps/2
 
+#-----------------------------Left Bound Wall Pair--------------------------
     Wall:
-        size_hint: (root.ww/2-root.ps/2)/root.ww, 1/100
-        x: root.ww/2+root.ps/2
-        y:root.wh/2-root.ps/2-1/100
+		size_hint: ((root.ww/2)-(root.ps)-(root.ps/2))/root.ww, 1/100
+		x: root.ps
+		y: root.wh-50
+	Wall:
+		size_hint: ((root.ww/2)-(root.ps)-(root.ps/2))/root.ww, 1/100
+		x: root.ps
+		y: 50-4
 
+#-----------------------------Right Portal Wall Pair--------------------------
     Wall:
-        size_hint: (root.ww/2-root.ps/2)/root.ww, 1/100
-        x: root.ww/2+root.ps/2
+        size_hint: root.ps/root.ww, 1/100
+        x: root.ww-root.ps
+        y:root.wh/2-root.ps/2-1/100
+    Wall:
+        size_hint: root.ps/root.ww, 1/100
+        x: root.ww-root.ps
         y: root.wh/2+root.ps/2
-    #-----------------------------------------------------------------
+
+#-----------------------------Right Bound Wall Pair--------------------------
     Wall:
-        size_hint: 1/300,(root.wh/2-root.ps/2+1/100)/root.wh
-        x: root.ww/2-root.ps/2-10/3
-        y: 0
+		size_hint: ((root.ww/2)-(root.ps)-(root.ps/2))/root.ww, 1/100
+		x: (root.ww/2)+(root.ps/2)
+		y: root.wh-50
+	Wall:
+		size_hint: ((root.ww/2)-(root.ps)-(root.ps/2))/root.ww, 1/100
+		x: (root.ww/2)+(root.ps/2)
+		y: 50-4
+
+#-----------------------------Bottom Portal Wall Pair--------------------------
     Wall:
-        size_hint: 1/300, (root.wh/2-root.ps/2+1/100)/root.wh
-        x: root.ww/2+root.ps/2
-        y: 0
-    Wall:
-        size_hint: 1/300, (root.wh/2-root.ps/2+1/100)/root.wh
+        size_hint: 1/300,(root.wh/8)/root.wh
         x: root.ww/2-root.ps/2
-        y: root.wh/2+root.ps/2
-    
+        y: 0
     Wall:
-        size_hint: 1/300, (root.wh/2-root.ps/2)/root.wh
+        size_hint: 1/300, (root.wh/8)/root.wh
         x: root.ww/2+root.ps/2
-        y: root.wh/2+root.ps/2
+        y: 0
+
+#-----------------------------Bottom Bound Wall Pair--------------------------
+    Wall:
+        size_hint: 1/300,((root.wh/2)-(root.ps/2)-(root.ps/2)-7.5)/root.wh
+        x: root.ps
+        y: (root.wh/8)
+    Wall:
+        size_hint: 1/300,((root.wh/2)-(root.ps/2)-(root.ps/2)-7.5)/root.wh
+        x: root.ww-root.ps
+        y: (root.wh/8)-4
+
+#-----------------------------Top Portal Wall Pair--------------------------
+    Wall:
+        size_hint: 1/300, (root.wh/8)/root.wh
+        x: root.ww/2-root.ps/2
+        y: root.wh-50
+    Wall:
+        size_hint: 1/300, (root.wh/8)/root.wh
+        x: root.ww/2+root.ps/2
+        y: root.wh-50
+
+#-----------------------------Top Bound Wall Pair--------------------------
+    Wall:
+        size_hint: 1/300,((root.wh/2)-(root.ps/2)-(root.ps/2)-7.5)/root.wh
+        x: root.ps
+        y: (root.wh/2)+(root.ps/2)
+    Wall:
+        size_hint: 1/300,((root.wh/2)-(root.ps/2)-(root.ps/2)-7.5)/root.wh
+        x: root.ww-root.ps
+        y: (root.wh/2)+(root.ps/2)
 
     
     
