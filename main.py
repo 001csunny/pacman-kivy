@@ -42,6 +42,7 @@ class GamePlay(Screen):
         self._keyboard = None
 
     def _on_keyboard_down(self, keyboard, keycode, text, modifiers):
+        print(keycode[1])
         if keycode[1] == 'up':
             self.pacman.velocity=(0,1)
         elif keycode[1] == 'down':
@@ -50,7 +51,10 @@ class GamePlay(Screen):
             self.pacman.velocity=(-1,0)
         elif keycode[1] == 'right':
             self.pacman.velocity=(1,0)
-
+        elif keycode[1] == 'spacebar':
+            self.pacman.velocity=(0,0)
+            print(self.pacman.pos)
+        
         return True
     
     def update(self, dt):

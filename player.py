@@ -5,6 +5,7 @@ from kivy.vector import Vector
 
 bound = {}
 bound[1] = (0, 164.5)
+bound[11] = (77, 164.5)
 bound[2] = (1123, 164.5)
 
 bound[3] = (565, 164.5)
@@ -12,13 +13,37 @@ bound[4] = (565, 323.5)
 
 bound[5] = (565, 1.5)
 
+bound[6] = (77, 274)
+bound[7] = (76, 47)
+
+bound[8] = (77, 164.5)
+
+bound[9] = (77, 46)
+bound[10] = (1055, 47)
+
+bound[12] = (157, 47)
+bound[13] = (157, 275)
+bound[14] = (157, 164.5)
+bound[15] = (1055, 164.5)
+
+bound[16] = (1055, 275)
+
+
+
 
 # Passage list
 passages = []
 passages = [
-    bound[1] + bound[2],
+    bound[1] + bound[11],
     bound[3] + bound[4],
     bound[5] + bound[3],
+    bound[8] + bound[6],
+    bound[7] + bound[8],
+    bound[9] + bound[10],
+    bound[12] + bound[13],
+    bound[13] + bound[14],
+    bound[14] + bound[15],
+    bound[6] + bound[16],
 ]
 
 
@@ -33,6 +58,7 @@ class Player(Widget):
     def move(self):
 
         last_pos = self.pos.copy()
+        # print(self.pos)
 
         for passage in passages:
             if (
@@ -64,7 +90,6 @@ class Player(Widget):
                 ):
                     self.pos = Vector(*self.elan) + self.pos
 
-        print(self.pos)
         if self.pos == [bound[1][0], (bound[1][1])]:
             self.pos = [bound[2][0], (bound[2][1])]
 

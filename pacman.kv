@@ -109,6 +109,22 @@
         x: root.ww-root.ps
         y: (root.wh/2)+(root.ps/2)
 
+#-----------------------------1st Y-axis Wall Pair Inside Bound--------------------------
+    Wall:
+        size_hint: 1/300,((root.wh/2)-46)/root.wh
+        x: 2*root.ps
+        y: 46 + root.ps
+
+#-----------------------------2st Y-axis Wall Pair Inside Bound--------------------------
+    Wall:
+        size_hint: 1/300,((root.wh/3)-(root.ps+17))/root.wh
+        x: 3*root.ps
+        y: 46 + root.ps
+    Wall:
+        size_hint: 1/300,((root.wh/3)-(root.ps+17))/root.wh
+        x: 3*root.ps
+        y: root.wh/2+root.ps/2
+
     Player:
         id: pacman_player
         pos: 1,root.wh/2-root.ps/2+3
