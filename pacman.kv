@@ -13,6 +13,13 @@
         pos: root.pos
         size: ps,ps
 
+<Ghost>:
+    Image:
+        id: 'ghost'
+        source: root.sp
+        pos: root.pos
+        size: ps,ps
+
 <GamePlay>:
 	canvas:
 		Rectangle:
@@ -102,8 +109,10 @@
         x: root.ww-root.ps
         y: (root.wh/2)+(root.ps/2)
 
-    
-    
     Player:
         id: pacman_player
         pos: 1,root.wh/2-root.ps/2+3
+    
+    Ghost:
+        id: ghost_1
+        pos: 9*ps + 0.07*root.width, ps + 0.02*root.height + 36

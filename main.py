@@ -8,6 +8,7 @@ from kivy.core.window import Window
 from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty
 from player import *
+from ghost import *
 from kivy.clock import Clock
 
 # Window.size = (1200,400)
@@ -29,6 +30,7 @@ class GamePlay(Screen):
         print("ตำแหน่งหน้าต่าง:", Window.mouse_pos)
         
     pacman = Player()
+    ghost1 = Ghost()
     
     def __init__(self, **kwargs):
         super(GamePlay,self).__init__(**kwargs)
