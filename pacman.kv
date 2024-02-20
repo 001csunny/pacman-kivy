@@ -125,10 +125,63 @@
         x: 3*root.ps
         y: root.wh/2+root.ps/2
 
+#-------------------------------------------C--------------------------------------------
+    Wall :
+        size_hint: 1/300,((root.wh/2)-46)/root.wh
+        x: 4 * root.ps
+        y: 46 + root.ps
+    Wall :
+        size_hint: 1/300,(root.ps)/root.wh
+        x: 4 * root.ps + 50
+        y: 46+40 + root.ps
+    Wall :
+        size_hint: root.ps/root.ww,1/100
+        x: 4 * root.ps + 50
+        y: 46+40 + root.ps
+    Wall :
+        size_hint: root.ps/root.ww,1/100
+        x: 4 * root.ps + 50
+        y: 46+40 + root.ps*2
+    Wall :
+        size_hint: (root.ps + 50)/root.ww,1/100
+        x: 4 * root.ps
+        y: 46+40 + root.ps*2 + 36
+    Wall :
+        size_hint: (root.ps + 50)/root.ww,1/100
+        x: 4 * root.ps
+        y: 46 + root.ps
+    Wall :
+        size_hint: 1/300,(44)/root.wh
+        x: 5 * root.ps + 50
+        y: 46 + root.ps
+    Wall :
+        size_hint: 1/300,(40)/root.wh
+        x: 5 * root.ps + 50
+        y: 46 + 40 + root.ps * 2
+#-------------------------------------------o--------------------------------------------
+    Wall :
+        size_hint: 1/300,((root.wh/2)-46)/root.wh
+        x: 6 * root.ps + 50
+        y: 46 + root.ps
+    Wall :
+        size_hint: 1/300,((root.wh/2)-46)/root.wh
+        x: 9 * root.ps + 50
+        y: 46 + root.ps
+    Wall :
+        size_hint: 3*root.ps/root.ww,1/100
+        x: 6 * root.ps + 50
+        y: 46 + root.ps
+    Wall :
+        size_hint: 3*root.ps/root.ww+1/300,1/100
+        x: 6 * root.ps + 50
+        y: 46+40 + root.ps*2 + 36
+
+
+#----------------------------------------Player------------------------------------------
     Player:
         id: pacman_player
         pos: 1,root.wh/2-root.ps/2+3
     
     Ghost:
         id: ghost_1
-        pos: 9*ps + 0.07*root.width, ps + 0.02*root.height + 36
+        pos: 0,0
