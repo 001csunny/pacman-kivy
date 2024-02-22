@@ -8,27 +8,39 @@ bound[1] = (0, 164.5)
 bound[11] = (77, 164.5)
 bound[2] = (1123, 164.5)
 
-bound[3] = (565, 164.5)
-bound[4] = (565, 323.5)
+bound[3] = (1056, 164.5)
+bound[4] = (1123, 164.5)
 
-bound[5] = (565, 1.5)
+# bound[5] = (565, 1.5)
 
 bound[6] = (77, 274)
-bound[7] = (76, 47)
+bound[7] = (76, 49)
 
-bound[8] = (77, 164.5)
+# bound[8] = (77, 164.5)
 
-bound[9] = (77, 46)
-bound[10] = (1055, 47)
+bound[9] = (77, 48)
+bound[10] = (1055, 49)
 
-bound[12] = (157, 47)
-bound[13] = (157, 275)
+bound[12] = (157, 49)
+bound[13] = (157, 274)
 bound[14] = (157, 164.5)
-bound[15] = (1055, 164.5)
+bound[15] = (232, 164.5)
 
 bound[16] = (1055, 275)
 
+bound[17] = (232, 49)
+bound[18] = (232, 274)
 
+bound[19] = (436, 49)
+bound[20] = (436, 274)
+
+bound[21] = (436, 172.5)
+bound[22] = (362, 172.5)
+
+bound[23] = (565, 49)
+bound[24] = (565, 0)
+bound[25] = (565, 274)
+bound[26] = (565, 332)
 
 
 # Passage list
@@ -36,14 +48,20 @@ passages = []
 passages = [
     bound[1] + bound[11],
     bound[3] + bound[4],
-    bound[5] + bound[3],
-    bound[8] + bound[6],
-    bound[7] + bound[8],
+    # bound[5] + bound[3],
+    bound[11] + bound[6],
+    bound[7] + bound[11],
     bound[9] + bound[10],
     bound[12] + bound[13],
     bound[13] + bound[14],
     bound[14] + bound[15],
     bound[6] + bound[16],
+    bound[10] + bound[16],
+    bound[17] + bound[18],
+    bound[19] + bound[20],
+    bound[22] + bound[21],
+    bound[24] + bound[23],
+    bound[25] + bound[26],
 ]
 
 
@@ -90,14 +108,14 @@ class Player(Widget):
                 ):
                     self.pos = Vector(*self.elan) + self.pos
 
-        if self.pos == [bound[1][0], (bound[1][1])]:
-            self.pos = [bound[2][0], (bound[2][1])]
+        if self.pos == [bound[26][0], (bound[26][1])-0.5]:
+            self.pos = [bound[24][0], (bound[24][1]+0.5)]
 
-        elif self.pos == [bound[2][0], (bound[2][1])]:
-            self.pos = [bound[1][0], (bound[1][1])]
+        elif self.pos == [bound[24][0], (bound[24][1])+0.5]:
+            self.pos = [bound[26][0], (bound[26][1]-0.5)]
         
-        if self.pos == [bound[5][0], (bound[5][1])]:
+        if self.pos == [bound[1][0], (bound[1][1])]:
             self.pos = [bound[4][0], (bound[4][1])]
 
         elif self.pos == [bound[4][0], (bound[4][1])]:
-            self.pos = [bound[5][0], (bound[5][1])]
+            self.pos = [bound[1][0], (bound[1][1])]
