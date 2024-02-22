@@ -116,7 +116,7 @@
         y: 46 + root.ps
     Wall:
         size_hint: 1/300,((root.wh/2)-46)/root.wh
-        x: root.ww-(2*root.ps)
+        x: root.ww-(2*root.ps)+10
         y: 46 + root.ps
 
 #-----------------------------2st Y-axis Wall Pair Inside Bound--------------------------
@@ -162,7 +162,7 @@
         size_hint: 1/300,(40)/root.wh
         x: 5 * root.ps + 50
         y: 46 + 40 + root.ps * 2
-#-------------------------------------------o--------------------------------------------
+#-------------------------------------------O--------------------------------------------
     Wall :
         size_hint: 1/300,((root.wh/2)-46)/root.wh
         x: 6 * root.ps + 50
@@ -179,6 +179,23 @@
         size_hint: 3*root.ps/root.ww+1/300,1/100
         x: 6 * root.ps + 50
         y: 46+40 + root.ps*2 + 36
+#-------------------------------------------------o---------------------------------------
+    Wall :
+        size_hint: 1/300,((root.wh/2)-146)/root.wh
+        x: 6 * root.ps + 100
+        y: 46 + root.ps +50
+    Wall :
+        size_hint: 1/300,((root.wh/2)-146)/root.wh
+        x: 9 * root.ps
+        y: 46 + root.ps + 50
+    Wall :
+        size_hint: (3*root.ps-100)/root.ww,1/100
+        x: 6 * root.ps + 100
+        y: 46 + root.ps + 50
+    Wall :
+        size_hint: (3*root.ps-100)/root.ww+1/300,1/100
+        x: 6 * root.ps + 100
+        y: 46+40 + root.ps*2 + 36 - 50
 #----------------------------------------------E-----------------------------------------
     Wall :
         size_hint: 1/300,((root.wh/2)-46)/root.wh 
