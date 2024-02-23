@@ -57,6 +57,9 @@ class GamePlay(Screen):
         
         return True
     
+    def show_food(self):
+        pass
+    
     def update(self, dt):
         self.pacman.move()
         

@@ -42,6 +42,15 @@ bound[24] = (565, 0)
 bound[25] = (565, 274)
 bound[26] = (565, 332)
 
+bound[27] = (745, 49)
+bound[28] = (745, 274)
+
+bound[29] = (981, 49)
+bound[30] = (981, 274)
+
+bound[31] = (852, 139)
+bound[32] = (981, 140)
+
 
 # Passage list
 passages = []
@@ -62,6 +71,10 @@ passages = [
     bound[22] + bound[21],
     bound[24] + bound[23],
     bound[25] + bound[26],
+    bound[27] + bound[28],
+    bound[29] + bound[32],
+    bound[32] + bound[30],
+    bound[31] + bound[32],
 ]
 
 
