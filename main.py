@@ -58,7 +58,7 @@ class GamePlay(Screen):
         return True
     
     def show_food(self):
-        pass
+        print("food working")
     
     def update(self, dt):
         self.pacman.move()
@@ -70,6 +70,7 @@ class Wall(Widget):
 class PacmanApp(App):
     def build(self):
         game = GamePlay()
+        game.show_food()
         Clock.schedule_interval(game.update, 1.0 / 60.0)
         return game
 
