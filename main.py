@@ -9,6 +9,7 @@ from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty
 from player import *
 from ghost import *
+from food import *
 from kivy.clock import Clock
 
 # Window.size = (1200,400)
@@ -22,6 +23,7 @@ class GamePlay(Screen):
     ww = NumericProperty(1200)
     wh = NumericProperty(400)
 
+    food_point = ['point{0}'.format(i) for i in range(0, len(food))]
 
     def on_size(self, *args):
         print("Window size:", self.width, self.height)
@@ -58,7 +60,10 @@ class GamePlay(Screen):
         return True
     
     def show_food(self):
-        print("food working")
+        for i in range(0, len(food)):
+            if i != 179 and 1 != 170:
+                globals()[self.food_point[i]] = Points(pos=food[i], size = (5,5))
+                self.add_widget(globals()[self.food_point[i]])
     
     def update(self, dt):
         self.pacman.move()
