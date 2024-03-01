@@ -19,8 +19,8 @@ from kivy.core.audio import SoundLoader
 # if window size bugged use this size instead
 Window.size = (960, 320)
 
-sound = SoundLoader.load('bg_song.mp3')
-sound.play()
+menu_sound = SoundLoader.load('bg_song.mp3')
+menu_sound.play()
 
 class GamePlay(Screen):
     ps = NumericProperty(77)
@@ -71,6 +71,14 @@ class GamePlay(Screen):
     
     def update(self, dt):
         self.pacman.move()
+
+        for i in reversed(range(len(eaten))):
+            if (self.pacman.pos[0] <= food[eaten[i]][0] - 20) and (
+                self.pacman.pos[0] >= food[eaten[i]][0] - 50) \
+                and (self.pacman.pos[1] <= food[eaten[i]][1] - 20) and (
+                    self.pacman.pos[1] >= food[eaten[i]][1] - 50):
+                self.remove_widget(globals()['point{0}'.format(eaten[i])])
+                del eaten[i]
         
 class Wall(Widget):
     pass

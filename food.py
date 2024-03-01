@@ -14,5 +14,8 @@ for a0, a1, b0, b1 in passages:
 
 food = food[:191]
 
+eaten = [i for i in range(len(food)) if i not in [179,170]]
+
+
 class Points(Widget):
     print('this is food')

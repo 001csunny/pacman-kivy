@@ -80,9 +80,11 @@ passages = [
 
 class Player(Widget):
     pac_img = StringProperty("img/boy_right.gif")
+    score = NumericProperty(0)
     velocity_x = NumericProperty(0)
     velocity_y = NumericProperty(0)
     velocity = ReferenceListProperty(velocity_x, velocity_y)
+    
 
     elan = (0, 0)
 
