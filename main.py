@@ -14,10 +14,10 @@ from kivy.clock import Clock
 from kivy.core.audio import SoundLoader
 
 
-# Window.size = (1200,400)
+Window.size = (1200,400)
 
 # if window size bugged use this size instead
-Window.size = (960, 320)
+#Window.size = (960, 320)
 
 menu_sound = SoundLoader.load('bg_song.mp3')
 menu_sound.play()
@@ -79,7 +79,7 @@ class GamePlay(Screen):
                     self.pacman.pos[1] >= food[eaten[i]][1] - 50):
                 self.remove_widget(globals()['point{0}'.format(eaten[i])])
                 del eaten[i]
-        
+                self.pacman.score += 1
 class Wall(Widget):
     pass
 
