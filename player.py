@@ -3,6 +3,9 @@ from kivy.properties import StringProperty, NumericProperty, ReferenceListProper
 from kivy.vector import Vector
 
 
+close_lisrt = [[11,12],[3,29],[3,30],[13,11]]
+
+
 bound = {}
 bound[1] = (0, 164.5)
 bound[11] = (77, 164.5)
@@ -14,17 +17,17 @@ bound[4] = (1123, 164.5)
 # bound[5] = (565, 1.5)
 
 bound[6] = (77, 274)
-bound[7] = (76, 49)
+bound[7] = (77, 48)
 
 # bound[8] = (77, 164.5)
 
-bound[9] = (77, 48)
+#bound[9] = (77, 48)
 bound[10] = (1055, 49)
 
 bound[12] = (157, 49)
 bound[13] = (157, 274)
 bound[14] = (157, 164.5)
-bound[15] = (232, 164.5)
+bound[15] = (231.5, 164.5)
 
 bound[16] = (1055, 275)
 
@@ -60,7 +63,7 @@ passages = [
     # bound[5] + bound[3],
     bound[11] + bound[6],
     bound[7] + bound[11],
-    bound[9] + bound[10],
+    bound[7] + bound[10],
     bound[12] + bound[13],
     bound[13] + bound[14],
     bound[14] + bound[15],
