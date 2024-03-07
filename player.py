@@ -3,7 +3,7 @@ from kivy.properties import StringProperty, NumericProperty, ReferenceListProper
 from kivy.vector import Vector
 
 
-close_lisrt = [[11,12],[3,29],[3,30],[13,11]]
+close_list = [[11,12],[3,29],[3,30],[13,11]]
 
 
 bound = {}
