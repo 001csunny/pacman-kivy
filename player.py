@@ -5,7 +5,9 @@ from gostBrain import pts_graph, distance, argmin
 
 
 
-close_list = []
+close_list = [[2,4],[1,5,6],[7,12,28],[3,1],[2,9],[2,8],[3,25],[6,10,13],[5,14,10],[11,9,8],\
+              [10,14,13],[3,26],[8,15,14],[9,13,16],[13,17,23],[14,21,17],[18,16,15],[17],[15,23,20],[19,22],\
+                [16,22,24],[20,21],[24,19,25],[21,23,26],[28,23,7],[24,12,28],[28],[27,26,25]]
 
 
 bound = {}
@@ -74,7 +76,7 @@ class Player(Widget):
     
 
     elan = (0, 0)
-
+    close_point = 1
     def move(self):
 
         last_pos = self.pos.copy()
@@ -123,5 +125,5 @@ class Player(Widget):
             self.pos = [bound[1][0], (bound[1][1])]
 
 
-        # self.close_point = \
-        #     argmin(lambda x:distance(self.pos, bound[x]),close_list[self.close_point -1], self.close_point)
+        self.close_point = \
+            argmin(lambda x:distance(self.pos, bound[x]),close_list[self.close_point -1], self.close_point)
