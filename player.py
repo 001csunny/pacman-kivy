@@ -10,76 +10,58 @@ close_list = []
 
 bound = {}
 bound[1] = (0, 164.5)
-bound[11] = (77, 164.5)
-bound[2] = (1123, 164.5)
-
+bound[2] = (77, 164.5) # bound[11]
 bound[3] = (1056, 164.5)
 bound[4] = (1123, 164.5)
-
-# bound[5] = (565, 1.5)
-
-bound[6] = (77, 274)
-bound[7] = (77, 48)
-
-# bound[8] = (77, 164.5)
-
-#bound[9] = (77, 48)
-bound[10] = (1055, 49)
-
-bound[12] = (157, 49)
-bound[13] = (157, 274)
-bound[14] = (157, 164.5)
-bound[15] = (231.5, 164.5)
-
-bound[16] = (1055, 275)
-
-bound[17] = (232, 49)
-bound[18] = (232, 274)
-
-bound[19] = (436, 49)
-bound[20] = (436, 274)
-
-bound[21] = (436, 172.5)
-bound[22] = (362, 172.5)
-
-bound[23] = (565, 49)
-bound[24] = (565, 0)
-bound[25] = (565, 274)
-bound[26] = (565, 332)
-
-bound[27] = (745, 49)
-bound[28] = (745, 274)
-
-bound[29] = (981, 49)
-bound[30] = (981, 274)
-
-bound[31] = (852, 139)
-bound[32] = (981, 140)
+bound[5] = (77, 274) # bound[6]
+bound[6] = (77, 48) # bound[7]
+bound[7] = (1055, 49) # bound[10]
+bound[8] = (157, 49) # bound[12]
+bound[9] = (157, 274) # bound[13]
+bound[10] = (157, 164.5) # bound[14]
+bound[11] = (231.5, 164.5) # bound[15]
+bound[12] = (1055, 275) # bound[16]
+bound[13] = (232, 49) # bound[17]
+bound[14] = (232, 274) # bound[18]
+bound[15] = (436, 49) # bound[19]
+bound[16] = (436, 274) # bound[20]
+bound[17] = (436, 172.5) # bound[21]
+bound[18] = (362, 172.5) # bound[22]
+bound[19] = (565, 49) # bound[23]
+bound[20] = (565, 0) # bound[24]
+bound[21] = (565, 274) # bound[25]
+bound[22] = (565, 332) # bound[26]
+bound[23] = (745, 49) # bound[27]
+bound[24] = (745, 274) # bound[28]
+bound[25] = (981, 49) # bound[29]
+bound[26] = (981, 274) # bound[30]
+bound[27] = (852, 139) # bound[31]
+bound[28] = (981, 140) # bound[32]
 
 
 # Passage list
 passages = []
 passages = [
-    bound[1] + bound[11],
+    bound[1] + bound[2],
     bound[3] + bound[4],
     # bound[5] + bound[3],
-    bound[11] + bound[6],
-    bound[7] + bound[11],
-    bound[7] + bound[10],
-    bound[12] + bound[13],
+    bound[2] + bound[5],
+    bound[6] + bound[2],
+    bound[6] + bound[7],
+    bound[8] + bound[9],
+    bound[9] + bound[10],
+    bound[10] + bound[11],
+    bound[5] + bound[12],
+    bound[7] + bound[12],
     bound[13] + bound[14],
-    bound[14] + bound[15],
-    bound[6] + bound[16],
-    bound[10] + bound[16],
-    bound[17] + bound[18],
-    bound[19] + bound[20],
-    bound[22] + bound[21],
-    bound[24] + bound[23],
-    bound[25] + bound[26],
+    bound[15] + bound[16],
+    bound[18] + bound[17],
+    bound[20] + bound[19],
+    bound[21] + bound[22],
+    bound[23] + bound[24],
+    bound[25] + bound[28],
+    bound[28] + bound[26],
     bound[27] + bound[28],
-    bound[29] + bound[32],
-    bound[32] + bound[30],
-    bound[31] + bound[32],
 ]
 
 graph = pts_graph(close_list,bound)
@@ -128,11 +110,11 @@ class Player(Widget):
                 ):
                     self.pos = Vector(*self.elan) + self.pos
 
-        if self.pos == [bound[26][0], (bound[26][1])-0.5]:
-            self.pos = [bound[24][0], (bound[24][1]+0.5)]
+        if self.pos == [bound[22][0], (bound[22][1])-0.5]:
+            self.pos = [bound[20][0], (bound[20][1]+0.5)]
 
-        elif self.pos == [bound[24][0], (bound[24][1])+0.5]:
-            self.pos = [bound[26][0], (bound[26][1]-0.5)]
+        elif self.pos == [bound[20][0], (bound[20][1])+0.5]:
+            self.pos = [bound[22][0], (bound[22][1]-0.5)]
         
         if self.pos == [bound[1][0], (bound[1][1])]:
             self.pos = [bound[4][0], (bound[4][1])]
@@ -141,5 +123,5 @@ class Player(Widget):
             self.pos = [bound[1][0], (bound[1][1])]
 
 
-        self.close_point = \
-            argmin(lambda x:distance(self.pos, bound[x]),close_list[self.close_point -1], self.close_point)
+        # self.close_point = \
+        #     argmin(lambda x:distance(self.pos, bound[x]),close_list[self.close_point -1], self.close_point)

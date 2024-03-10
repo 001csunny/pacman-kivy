@@ -7,7 +7,6 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen,ScreenManager, FallOutTransition
 from main import *
 from kivy.properties import NumericProperty, StringProperty
-from kivy.core.audio import SoundLoader
 # from kivy.uix.popup import Popup
 # from kivy.uix.boxlayout import BoxLayout
 # from kivy.uix.button import Button
@@ -17,9 +16,6 @@ from kivy.core.audio import SoundLoader
 
 # if window size bugged use this size instead
 Window.size = (960, 320)
-
-sound = SoundLoader.load('menu_bg_song.mp3')
-sound.play()
 
 Builder.load_string(
     """
