@@ -1,11 +1,11 @@
 from kivy.uix.widget import Widget
 from kivy.properties import StringProperty, NumericProperty, ReferenceListProperty
 from kivy.vector import Vector
+from gostBrain import pts_graph, distance, argmin
 
 
-close_list = [[11,12],[3,29],[3,30],[13,11],\
-              [7,14,17],[12,18,19],[17,21,27],[19,24,27],[29,28,29],[27,32,10],[20,26,28],\
-                [6,14,18],[13,15,20],[18,19,25],[13,15,12],[18,14,17],[20,22,19],[25,27,30],[28,29,16],[30,31,29],[16,4,10],[6,1,7]]
+
+close_list = []
 
 
 bound = {}
@@ -82,7 +82,7 @@ passages = [
     bound[31] + bound[32],
 ]
 
-
+graph = pts_graph(close_list,bound)
 class Player(Widget):
     pac_img = StringProperty("img/boy_right.gif")
     score = NumericProperty(0)
@@ -139,3 +139,7 @@ class Player(Widget):
 
         elif self.pos == [bound[4][0], (bound[4][1])]:
             self.pos = [bound[1][0], (bound[1][1])]
+
+
+        self.close_point = \
+            argmin(lambda x:distance(self.pos, bound[x]),close_list[self.close_point -1], self.close_point)
