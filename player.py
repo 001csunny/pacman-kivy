@@ -5,7 +5,7 @@ from gostBrain import pts_graph, distance, argmin
 
 
 
-close_list = [[2,4],[1,5,6],[7,12,28],[3,1],[2,9],[2,8],[3,25],[6,10,13],[5,14,10],[11,9,8],\
+close_list = [[2,4],[1,5,6],[7,12,4],[3,1],[2,9],[8,2],[3,25],[6,10,13],[5,14,10],[11,9,8],\
               [10,14,13],[3,26],[8,15,14],[9,13,16],[13,17,23],[14,21,17],[18,16,15],[17],[15,23,20],[19,22],\
                 [16,22,24],[20,21],[24,19,25],[21,23,26],[28,23,7],[24,12,28],[28],[27,26,25]]
 
@@ -42,7 +42,7 @@ bound[28] = (981, 140) # bound[32]
 
 
 # Passage list
-passages = []
+
 passages = [
     bound[1] + bound[2],
     bound[3] + bound[4],
@@ -80,7 +80,7 @@ class Player(Widget):
     def move(self):
 
         last_pos = self.pos.copy()
-        # print(self.pos)
+      
 
         for passage in passages:
             if (
