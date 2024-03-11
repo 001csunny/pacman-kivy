@@ -96,7 +96,7 @@ class PacmanApp(App):
         game = GamePlay()
         game.show_food()
         Clock.schedule_interval(game.update_ghost1, 1.0 / 60.0)
-        Clock.schedule_interval(game.do_strategy, 2)
+        Clock.schedule_interval(game.do_strategy, 4)
         Clock.schedule_interval(game.update, 1.0 / 60.0)
         return game
 
