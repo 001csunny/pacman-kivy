@@ -26,17 +26,19 @@ Builder.load_string(
             source: root.img
         Button:
             size_hint: 0.2,0.2
-            pos: (root.ww/2)-20,(root.wh/2)-220
+            pos: (root.ww/2)-20,(root.wh/2)-240
             text: 'Start Game'
             on_press: root.manager.current_screen.add_widget(root.gaming.build());
         Slider:
             id: slider
             size_hint: 0.3,0.5
             pos: (root.ww/2)-80,-80
+            value: 1
             min: 0
             max: 1 
         Label:
-            text: str(slider.value)
+            text: '{:.0f}'.format(slider.value * 100)
+            pos: 0, -120
 """
 )
 
