@@ -7,7 +7,8 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen, ScreenManager, FallOutTransition
 from main import *
 from kivy.properties import NumericProperty, StringProperty
-from kivy.uix.slider import Slider
+from kivy.app import App
+from kivy.core.audio import SoundLoader
 
 # Window.size = (1200,400)
 
@@ -16,6 +17,7 @@ Window.size = (960, 320)
 
 menu_sound = SoundLoader.load('menu_bg_song.mp3')
 menu_sound.play()
+menu_sound.volume = 0.5
 
 Builder.load_string(
     """
@@ -33,9 +35,10 @@ Builder.load_string(
             id: slider
             size_hint: 0.3,0.5
             pos: (root.ww/2)-80,-80
-            value: 1
+            value: 0.5
             min: 0
             max: 1 
+            on_value: root.update_volume(slider.value)
         Label:
             text: '{:.0f}'.format(slider.value * 100)
             pos: 0, -120
@@ -49,6 +52,9 @@ class MenuScreen(Screen):
     wh = NumericProperty(Window.size[1])
     gaming = PacmanApp()
     gaming.load_kv()
+
+    def update_volume(self, value):
+        menu_sound.volume = value
 
 
 class MainScreenApp(App):

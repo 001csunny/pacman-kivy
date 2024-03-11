@@ -11,16 +11,12 @@ from player import *
 from ghost import *
 from food import *
 from kivy.clock import Clock
-from kivy.core.audio import SoundLoader
 
 
 Window.size = (1200,400)
 
 # if window size bugged use this size instead
 # Window.size = (960, 320)
-
-menu_sound = SoundLoader.load('bg_song.mp3')
-menu_sound.play()
 
 class GamePlay(Screen):
     ps = NumericProperty(77)
