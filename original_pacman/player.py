@@ -1,7 +1,7 @@
 from kivy.uix.widget import Widget
 from kivy.properties import StringProperty, NumericProperty, ReferenceListProperty
 from kivy.vector import Vector
-from gostBrain import pts_graph, distance, argmin
+from original_pacman.gostBrain import pts_graph, distance, argmin
 
 
 

@@ -7,16 +7,16 @@ from kivy.uix.screenmanager import Screen
 from kivy.core.window import Window
 from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty
-from player import *
-from ghost import *
-from food import *
+from original_pacman.player import *
+from original_pacman.ghost import *
+from original_pacman.food import *
 from kivy.clock import Clock
 
 
-Window.size = (1200,400)
+# Window.size = (1200,400)
 
 # if window size bugged use this size instead
-# Window.size = (960, 320)
+Window.size = (960, 320)
 
 class GamePlay(Screen):
     ps = NumericProperty(77)

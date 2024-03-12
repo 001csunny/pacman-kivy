@@ -4,12 +4,14 @@ from kivy.vector import Vector
 
 from random import randint
 from math import *
-from food import *
+from original_pacman.food import *
 
-from player import  bound,passages,graph, close_list
+from original_pacman.player import  bound,passages,graph, close_list
 
 
-from gostBrain import dijkstra, distance, argmin
+from original_pacman.gostBrain import dijkstra, distance, argmin
+
+
 
 
 class Ghost(Widget):
@@ -29,8 +31,6 @@ class Ghost(Widget):
     def move(self, randomly=True):
 
         last_pos = self.pos.copy()
-        moved = False
-
         print(self.pos)
         for passage in passages:
             if (passage[0] <= self.velocity_x + self.pos[0]) and \
@@ -40,7 +40,6 @@ class Ghost(Widget):
 
                 self.pos = Vector(*self.velocity)+self.pos
                 self.elan = self.velocity.copy()
-                moved = True
 
                 if self.velocity == [-1, 0]:
                     self.sp = 'img/ghost01.gif'
@@ -78,7 +77,7 @@ class Ghost(Widget):
             self.pos = [bound[1][0], (bound[1][1])]
 
         if self.pos == last_pos:
-            if (self.strat[1]==[] or randomly) and ((self.pos[0], self.pos[1]) in bound):
+            if (self.strat[1] == [] or randomly) and ((self.pos[0], self.pos[1]) in bound):
                 self.direction()
                 self.move()
 
