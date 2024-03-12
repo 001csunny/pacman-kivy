@@ -4,12 +4,12 @@ from kivy.vector import Vector
 
 from random import randint
 from math import *
-from food import *
+from original_pacman.food import *
 
-from player import  graph, close_list
+from original_pacman.player import  graph, close_list
 
 
-from gostBrain import dijkstra, distance, argmin
+from original_pacman.gostBrain import dijkstra, distance, argmin
 
 bound = {}
 bound[1] = (0, 164)

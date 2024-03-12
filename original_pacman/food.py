@@ -1,5 +1,5 @@
 from kivy.uix.widget import Widget
-from player import passages
+from original_pacman.player import passages
 
 food = []
 
