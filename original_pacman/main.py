@@ -11,7 +11,7 @@ from original_pacman.player import *
 from original_pacman.ghost import *
 from original_pacman.food import *
 from kivy.clock import Clock
-
+from kivy.uix.label import Label
 
 Window.size = (1200,400)
 
@@ -25,6 +25,8 @@ class GamePlay(Screen):
 
     food_point = ['point{0}'.format(i) for i in range(0, len(food))]
 
+    game_progress = 'on'
+
     def on_size(self, *args):
         print("Window size:", self.width, self.height)
 
@@ -33,8 +35,7 @@ class GamePlay(Screen):
         
     pacman = Player()
     ghost1 = Ghost()
-    ghost2 = Ghost()
-    
+
     def __init__(self, **kwargs):
         super(GamePlay,self).__init__(**kwargs)
         self._keyboard = Window.request_keyboard(self._keyboard_closed, self)
@@ -67,16 +68,45 @@ class GamePlay(Screen):
                 self.add_widget(globals()[self.food_point[i]])
     
     def update(self, dt):
-        self.pacman.move()
+        if self.game_progress == 'on':
+            self.pacman.move()
+            if self.powerball.collide_player(self.pacman):
+                self.remove_widget(self.powerball)
+                self.pacman.powerup = 1
 
-        for i in reversed(range(len(eaten))):
-            if (self.pacman.pos[0] <= food[eaten[i]][0] - 20) and (
-                self.pacman.pos[0] >= food[eaten[i]][0] - 50) \
-                and (self.pacman.pos[1] <= food[eaten[i]][1] - 20) and (
-                    self.pacman.pos[1] >= food[eaten[i]][1] - 50):
-                self.remove_widget(globals()['point{0}'.format(eaten[i])])
-                del eaten[i]
-                self.pacman.score += 1
+            for i in reversed(range(len(eaten))):
+                if (self.pacman.pos[0] <= food[eaten[i]][0] - 20) and (
+                    self.pacman.pos[0] >= food[eaten[i]][0] - 50) \
+                    and (self.pacman.pos[1] <= food[eaten[i]][1] - 20) and (
+                        self.pacman.pos[1] >= food[eaten[i]][1] - 50):
+                    self.remove_widget(globals()['point{0}'.format(eaten[i])])
+                    del eaten[i]
+                    # when food is eaten score is updated
+                    self.pacman.score += 1
+
+            for gost in [self.ghost1, self.ghost2]:
+                if self.pacman.powerup == 0:
+                    if distance(self.pacman.pos,gost.pos) <= 77/2:
+                        self.remove_widget(self.pacman)
+                        self.game_progress = 'Lost'
+
+                else:
+                    if distance(self.pacman.pos,gost.pos) <= 77/2:
+                        self.remove_widget(gost)
+                        # basically after consuming powerball we have the ability to eat the ghosts :)
+                        gost.pos = [0,0]
+                        del gost
+                        self.pacman.powerup = 0
+                        # lets also add score points when we eat a ghost :)
+                        self.pacman.score += 200
+
+        else:
+            if self.game_progress == 'Lost':
+                label = Label(text='GAME OVER\nSCORE={0}'.format(self.pacman.score),font_size=200)
+                self.add_widget(label)
+            else:
+                label = Label(text='NICE TRY\nSCORE={0}'.format(self.pacman.score),font_size=200)
+                self.add_widget(label)
 
 
     def update_ghost1(self,dt):
@@ -98,9 +128,9 @@ class PacmanApp(App):
     def build(self):
         game = GamePlay()
         game.show_food()
-        
-        Clock.schedule_interval(game.update_ghost2, 1.0 / 60.0)
-    
+        def start_delay(self):
+            Clock.schedule_interval(game.update_ghost2, 1.0 / 60.0)
+        Clock.schedule_once(start_delay,15)
         Clock.schedule_interval(game.do_strategy2, 5)
         Clock.schedule_interval(game.update_ghost1, 1.0 / 60.0)
         Clock.schedule_interval(game.do_strategy1, 5)

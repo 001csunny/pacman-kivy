@@ -79,6 +79,8 @@ class Player(Widget):
 
     elan = (0, 0)
     close_point = 1
+    powerup =0
+    
     def move(self):
 
         last_pos = self.pos.copy()

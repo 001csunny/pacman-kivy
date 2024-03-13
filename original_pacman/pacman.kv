@@ -1,4 +1,6 @@
 #:set ps 77
+#:import Powerball original_pacman.powerball.Powerball
+
 <Wall>:
 	canvas:
 		Color:
@@ -28,10 +30,18 @@
             pos: self.pos
             size: 5,5
 
+<Powerball>:
+    Image:
+        source: root.image
+        pos: root.pos
+        size: 20,20
+
 <GamePlay>:
     pacman: pacman_player
     ghost1: ghost_1
     ghost2: ghost_2
+    powerball: powerball_1
+
 	canvas:
 		Rectangle:
 			source: 'img/background.jpg'
@@ -280,3 +290,8 @@
     Ghost:
         id: ghost_2
         pos: 1122, 164
+
+    Powerball:
+        id: powerball_1
+        x: 372
+        y: 202
