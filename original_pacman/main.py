@@ -33,6 +33,7 @@ class GamePlay(Screen):
         
     pacman = Player()
     ghost1 = Ghost()
+    ghost2 = Ghost()
     
     def __init__(self, **kwargs):
         super(GamePlay,self).__init__(**kwargs)
@@ -81,14 +82,14 @@ class GamePlay(Screen):
     def update_ghost1(self,dt):
         self.ghost1.strategy()
     
-    def do_strategy(self,dt):
+    def do_strategy1(self,dt):
         self.ghost1.next_strategy(self.pacman.close_point)
     
     def update_ghost2(self,dt):
-        self.ghost1.strategy()
+        self.ghost2.strategy()
     
     def do_strategy2(self,dt):
-        self.ghost1.next_strategy(self.pacman.close_point)
+        self.ghost2.next_strategy(self.pacman.close_point)
 class Wall(Widget):
     pass
 
@@ -97,10 +98,12 @@ class PacmanApp(App):
     def build(self):
         game = GamePlay()
         game.show_food()
-        Clock.schedule_interval(game.update_ghost1, 1.0 / 60.0)
-        Clock.schedule_interval(game.do_strategy, 5)
+        
         Clock.schedule_interval(game.update_ghost2, 1.0 / 60.0)
+    
         Clock.schedule_interval(game.do_strategy2, 5)
+        Clock.schedule_interval(game.update_ghost1, 1.0 / 60.0)
+        Clock.schedule_interval(game.do_strategy1, 5)
         Clock.schedule_interval(game.update, 1.0 / 60.0)
         return game
 
