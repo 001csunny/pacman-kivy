@@ -83,6 +83,12 @@ class GamePlay(Screen):
     
     def do_strategy(self,dt):
         self.ghost1.next_strategy(self.pacman.close_point)
+    
+    def update_ghost2(self,dt):
+        self.ghost1.strategy()
+    
+    def do_strategy2(self,dt):
+        self.ghost1.next_strategy(self.pacman.close_point)
 class Wall(Widget):
     pass
 
@@ -92,7 +98,9 @@ class PacmanApp(App):
         game = GamePlay()
         game.show_food()
         Clock.schedule_interval(game.update_ghost1, 1.0 / 60.0)
-        Clock.schedule_interval(game.do_strategy, 4)
+        Clock.schedule_interval(game.do_strategy, 5)
+        Clock.schedule_interval(game.update_ghost2, 1.0 / 60.0)
+        Clock.schedule_interval(game.do_strategy2, 5)
         Clock.schedule_interval(game.update, 1.0 / 60.0)
         return game
 

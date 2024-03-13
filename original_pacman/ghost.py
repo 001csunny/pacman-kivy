@@ -115,3 +115,6 @@ class Ghost(Widget):
 
     def next_strategy(self, close_to_player):
         self.strat = dijkstra(self.close_point, close_to_player, graph)
+
+    def next_strategy2(self, close_to_player):
+        self.strat = dijkstra(self.close_point, close_to_player, graph)
