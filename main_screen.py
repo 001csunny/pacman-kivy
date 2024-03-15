@@ -5,8 +5,8 @@ Config.set("graphics", "resizable", False)
 from kivy.core.window import Window
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen, ScreenManager, SlideTransition
-from original_pacman.main import *
-from easy_pacman.main import *
+from easy_pacman.main import EasyPacmanApp
+from original_pacman.main import PacmanApp
 from kivy.properties import NumericProperty, StringProperty
 from kivy.app import App
 from kivy.core.audio import SoundLoader
@@ -29,7 +29,7 @@ class SettingsScreen(Screen):
         self.gaming = EasyPacmanApp()
         self.gaming.load_kv()
 
-    def hard_mode(self):
+    def normal_mode(self):
         self.gaming = PacmanApp()
         self.gaming.load_kv()
 

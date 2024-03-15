@@ -7,9 +7,9 @@ from kivy.uix.screenmanager import Screen
 from kivy.core.window import Window
 from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty
-from easy_pacman.player import *
-from easy_pacman.ghost import *
-from easy_pacman.food import *
+from original_pacman.player import *
+from original_pacman.ghost import *
+from original_pacman.food import *
 from kivy.clock import Clock
 from kivy.uix.label import Label
 
@@ -22,6 +22,7 @@ class GamePlay(Screen):
     ps = NumericProperty(77)
     ww = NumericProperty(1200)
     wh = NumericProperty(400)
+    sky = 'img/cloud2_background.jpg'
 
     food_point = ['point{0}'.format(i) for i in range(0, len(food))]
 
@@ -75,8 +76,13 @@ class GamePlay(Screen):
                         self.pacman.pos[1] >= food[eaten[i]][1] - 50):
                     self.remove_widget(globals()['point{0}'.format(eaten[i])])
                     del eaten[i]
-                    # when food is eaten score is updated
                     self.pacman.score += 1
+                    self.pacman.bonus_velocity += 0.01
+
+            if self.pacman.powerup == 0:
+                    if distance(self.pacman.pos,self.ghost1.pos) <= 77/2:
+                        self.remove_widget(self.pacman)
+                        self.game_progress = 'Lost'
 
         else:
             if self.game_progress == 'Lost':
