@@ -16,7 +16,7 @@ from kivy.core.audio import SoundLoader
 # if window size bugged use this size instead
 Window.size = (960, 320)
 
-menu_sound = SoundLoader.load('menu_bg_song.mp3')
+menu_sound = SoundLoader.load('sound/menu_bg_song.mp3')
 menu_sound.play()
 menu_sound.volume = 0.5
 
