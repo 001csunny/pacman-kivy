@@ -26,12 +26,6 @@ class GamePlay(Screen):
     food_point = ['point{0}'.format(i) for i in range(0, len(food))]
 
     game_progress = 'on'
-
-    def on_size(self, *args):
-        print("Window size:", self.width, self.height)
-
-    def on_touch_move(self, touch):
-        print("ตำแหน่งหน้าต่าง:", Window.mouse_pos)
         
     pacman = Player()
     ghost1 = Ghost()
@@ -46,7 +40,6 @@ class GamePlay(Screen):
         self._keyboard = None
 
     def _on_keyboard_down(self, keyboard, keycode, text, modifiers):
-        print(keycode[1])
         if keycode[1] == 'up':
             self.pacman.velocity=(0,1)
         elif keycode[1] == 'down':
@@ -57,7 +50,6 @@ class GamePlay(Screen):
             self.pacman.velocity=(1,0)
         elif keycode[1] == 'spacebar':
             self.pacman.velocity=(0,0)
-            print(self.pacman.pos)
         
         return True
     

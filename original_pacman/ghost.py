@@ -61,7 +61,6 @@ class Ghost(Widget):
                 ):
                     self.pos = Vector(*self.elan) + self.pos
 
-        # How about making our pacman dissapear on one side and come out the other
         if self.pos == [bound[22][0], (bound[22][1])]:
             self.pos = [bound[20][0], (bound[20][1])]
 

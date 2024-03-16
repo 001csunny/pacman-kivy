@@ -109,7 +109,6 @@ class Player(Widget):
     bonus_velocity = 1
 
     def move(self):
-        print(self.pos)
         last_pos = self.pos.copy()
 
         for passage in passages:

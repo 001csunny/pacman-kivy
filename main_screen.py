@@ -12,10 +12,10 @@ from kivy.properties import NumericProperty, StringProperty
 from kivy.app import App
 from kivy.core.audio import SoundLoader
 
-Window.size = (1200,400)
+# Window.size = (1200,400)
 
 # if window size bugged use this size instead
-#Window.size = (960, 320)
+Window.size = (960, 320)
 
 menu_sound = SoundLoader.load('sound/menu_bg_song.mp3')
 menu_sound.play()
