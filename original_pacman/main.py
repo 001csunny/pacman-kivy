@@ -70,8 +70,11 @@ class GamePlay(Screen):
     def update(self, dt):
         if self.game_progress == 'on':
             self.pacman.move()
-            if self.powerball.collide_player(self.pacman):
-                self.remove_widget(self.powerball)
+            if self.powerball1.collide_player(self.pacman):
+                self.remove_widget(self.powerball1)
+                self.pacman.powerup = 1
+            if self.powerball2.collide_player(self.pacman):
+                self.remove_widget(self.powerball2)
                 self.pacman.powerup = 1
 
             for i in reversed(range(len(eaten))):
@@ -130,7 +133,7 @@ class PacmanApp(App):
         game.show_food()
         def start_delay(self):
             Clock.schedule_interval(game.update_ghost2, 1.0 / 60.0)
-        Clock.schedule_once(start_delay,15)
+        Clock.schedule_once(start_delay,20)
         Clock.schedule_interval(game.do_strategy2, 5)
         Clock.schedule_interval(game.update_ghost1, 1.0 / 60.0)
         Clock.schedule_interval(game.do_strategy1, 5)
