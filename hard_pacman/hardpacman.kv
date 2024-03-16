@@ -1,0 +1,313 @@
+#:set ps 77
+#:import Powerball original_pacman.powerball.Powerball
+
+<Wall>:
+	canvas:
+		Color:
+			rgba: 1,1,1,1
+		Rectangle:
+			size: self.size
+			pos: self.pos
+<Player>:
+    Image:
+        id:'pacman'
+        source: root.pac_img
+        pos: root.pos
+        size: ps,ps
+
+<Ghost>:
+    Image:
+        id: 'ghost'
+        source: root.sp
+        pos: root.pos
+        size: ps,ps
+
+<Points>:
+    canvas:
+        Color:
+            rgba: 0.93, 0.5, 0.93, 1
+        Rectangle:
+            pos: self.pos
+            size: 5,5
+
+<Powerball>:
+    Image:
+        source: root.image
+        pos: root.pos
+        size: 20,20
+
+<GamePlay>:
+    pacman: pacman_player
+    ghost1: ghost_1
+    ghost2: ghost_2
+    ghost3: ghost_3
+    ghost4: ghost_4
+    powerball1: powerball_1
+    powerball2: powerball_2
+
+	canvas:
+		Rectangle:
+			source: 'img/background.jpg'
+			size: self.size
+			pos: self.pos
+    Label:
+        color : '#AFFD17'
+        font_size: 40
+        pos: 560,180
+        text: str(root.pacman.score)
+    Label:
+        color : '#AFFD17'
+        font_size: 45
+        pos: 460,180
+        text: 'score : '
+
+#-----------------------------Left Portal Wall Pair--------------------------
+	Wall:
+		size_hint: root.ps/root.ww, 1/100
+		x: 0
+		y: root.wh/2-root.ps/2-1/100
+	Wall:
+        size_hint: root.ps/root.ww, 1/100
+        x: 0
+        y: root.wh/2+root.ps/2
+
+#-----------------------------Left Bound Wall Pair--------------------------
+    Wall:
+		size_hint: ((root.ww/2)-(root.ps)-(root.ps/2))/root.ww, 1/100
+		x: root.ps
+		y: root.wh-50
+	Wall:
+		size_hint: ((root.ww/2)-(root.ps)-(root.ps/2))/root.ww, 1/100
+		x: root.ps
+		y: 50-4
+
+#-----------------------------Right Portal Wall Pair--------------------------
+    Wall:
+        size_hint: root.ps/root.ww, 1/100
+        x: root.ww-root.ps
+        y:root.wh/2-root.ps/2-1/100
+    Wall:
+        size_hint: root.ps/root.ww, 1/100
+        x: root.ww-root.ps
+        y: root.wh/2+root.ps/2
+
+#-----------------------------Right Bound Wall Pair--------------------------
+    Wall:
+		size_hint: ((root.ww/2)-(root.ps)-(root.ps/2))/root.ww, 1/100
+		x: (root.ww/2)+(root.ps/2)
+		y: root.wh-50
+	Wall:
+		size_hint: ((root.ww/2)-(root.ps)-(root.ps/2))/root.ww, 1/100
+		x: (root.ww/2)+(root.ps/2)
+		y: 50-4
+
+#-----------------------------Bottom Portal Wall Pair--------------------------
+    Wall:
+        size_hint: 1/300,(root.wh/8)/root.wh
+        x: root.ww/2-root.ps/2
+        y: 0
+    Wall:
+        size_hint: 1/300, (root.wh/8)/root.wh
+        x: root.ww/2+root.ps/2
+        y: 0
+
+#-----------------------------Bottom Bound Wall Pair--------------------------
+    Wall:
+        size_hint: 1/300,((root.wh/2)-(root.ps/2)-(root.ps/2)-7.5)/root.wh
+        x: root.ps
+        y: (root.wh/8)
+    Wall:
+        size_hint: 1/300,((root.wh/2)-(root.ps/2)-(root.ps/2)-7.5)/root.wh
+        x: root.ww-root.ps
+        y: (root.wh/8)-4
+
+#-----------------------------Top Portal Wall Pair--------------------------
+    Wall:
+        size_hint: 1/300, (root.wh/8)/root.wh
+        x: root.ww/2-root.ps/2
+        y: root.wh-50
+    Wall:
+        size_hint: 1/300, (root.wh/8)/root.wh
+        x: root.ww/2+root.ps/2
+        y: root.wh-50
+
+#-----------------------------Top Bound Wall Pair--------------------------
+    Wall:
+        size_hint: 1/300,((root.wh/2)-(root.ps/2)-(root.ps/2)-7.5)/root.wh
+        x: root.ps
+        y: (root.wh/2)+(root.ps/2)
+    Wall:
+        size_hint: 1/300,((root.wh/2)-(root.ps/2)-(root.ps/2)-7.5)/root.wh
+        x: root.ww-root.ps
+        y: (root.wh/2)+(root.ps/2)
+
+#-----------------------------1st Y-axis Wall Pair Inside Bound--------------------------
+    Wall:
+        size_hint: 1/300,((root.wh/2)-46)/root.wh
+        x: 2*root.ps
+        y: 46 + root.ps
+    Wall:
+        size_hint: 1/300,((root.wh/2)-46)/root.wh
+        x: root.ww-(2*root.ps)+10
+        y: 46 + root.ps
+
+#-----------------------------2st Y-axis Wall Pair Inside Bound--------------------------
+    Wall:
+        size_hint: 1/300,((root.wh/3)-(root.ps+17))/root.wh
+        x: 3*root.ps
+        y: 46 + root.ps
+    Wall:
+        size_hint: 1/300,((root.wh/3)-(root.ps+17))/root.wh
+        x: 3*root.ps
+        y: root.wh/2+root.ps/2
+
+#-------------------------------------------C--------------------------------------------
+    Wall :
+        size_hint: 1/300,((root.wh/2)-46)/root.wh
+        x: 4 * root.ps
+        y: 46 + root.ps
+    Wall :
+        size_hint: 1/300,(root.ps)/root.wh
+        x: 4 * root.ps + 50
+        y: 46+40 + root.ps
+    Wall :
+        size_hint: root.ps/root.ww,1/100
+        x: 4 * root.ps + 50
+        y: 46+40 + root.ps
+    Wall :
+        size_hint: root.ps/root.ww,1/100
+        x: 4 * root.ps + 50
+        y: 46+40 + root.ps*2
+    Wall :
+        size_hint: (root.ps + 50)/root.ww,1/100
+        x: 4 * root.ps
+        y: 46+40 + root.ps*2 + 36
+    Wall :
+        size_hint: (root.ps + 50)/root.ww,1/100
+        x: 4 * root.ps
+        y: 46 + root.ps
+    Wall :
+        size_hint: 1/300,(44)/root.wh
+        x: 5 * root.ps + 50
+        y: 46 + root.ps
+    Wall :
+        size_hint: 1/300,(40)/root.wh
+        x: 5 * root.ps + 50
+        y: 46 + 40 + root.ps * 2
+#-------------------------------------------O--------------------------------------------
+    Wall :
+        size_hint: 1/300,((root.wh/2)-46)/root.wh
+        x: 6 * root.ps + 50
+        y: 46 + root.ps
+    Wall :
+        size_hint: 1/300,((root.wh/2)-46)/root.wh
+        x: 9 * root.ps + 50
+        y: 46 + root.ps
+    Wall :
+        size_hint: 3*root.ps/root.ww,1/100
+        x: 6 * root.ps + 50
+        y: 46 + root.ps
+    Wall :
+        size_hint: 3*root.ps/root.ww+1/300,1/100
+        x: 6 * root.ps + 50
+        y: 46+40 + root.ps*2 + 36
+#-------------------------------------------------o---------------------------------------
+    Wall :
+        size_hint: 1/300,((root.wh/2)-146)/root.wh
+        x: 6 * root.ps + 100
+        y: 46 + root.ps +50
+    Wall :
+        size_hint: 1/300,((root.wh/2)-146)/root.wh
+        x: 9 * root.ps
+        y: 46 + root.ps + 50
+    Wall :
+        size_hint: (3*root.ps-100)/root.ww,1/100
+        x: 6 * root.ps + 100
+        y: 46 + root.ps + 50
+    Wall :
+        size_hint: (3*root.ps-100)/root.ww+1/300,1/100
+        x: 6 * root.ps + 100
+        y: 46+40 + root.ps*2 + 36 - 50
+#----------------------------------------------E-----------------------------------------
+    Wall :
+        size_hint: 1/300,((root.wh/2)-46)/root.wh 
+        x: 10 * root.ps + 50
+        y: 46 + root.ps
+    Wall :
+        size_hint: 2*root.ps/root.ww,1/100
+        x: 10 * root.ps + 50
+        y: 46 + root.ps
+    Wall :
+        size_hint: 2*root.ps/root.ww,1/100
+        x: 10 * root.ps + 50
+        y: 46+40 + root.ps*2 + 36
+    Wall :
+        size_hint: (2*root.ps - 42)/root.ww,1/100
+        x: 11 * root.ps
+        y: 46 + 40 + root.ps*2 + 21
+    Wall :
+        size_hint: (2*root.ps - 27)/root.ww,1/100
+        x: 11 * root.ps
+        y: 46 + root.ps + 15
+    Wall :
+        size_hint: (2*root.ps - 27)/root.ww,1/100
+        x: 11 * root.ps
+        y: 46 + 2*root.ps + 15
+    Wall :
+        size_hint: 1/300,(root.ps)/root.wh
+        x: 11 * root.ps
+        y: 46 + root.ps + 15
+    Wall :
+        size_hint: 1/300,(root.ps)/root.wh
+        x: 11 * root.ps
+        y: 46 + root.ps + 15
+    Wall :
+        size_hint: (2*root.ps - 42)/root.ww,1/100
+        x: 11 * root.ps
+        y: 46 + root.ps*2 +30
+    Wall :
+        size_hint: 1/300,32/root.wh
+        x: 11 * root.ps
+        y: 46 + root.ps*2 +30
+    Wall :
+        size_hint: 1/300,35/root.wh
+        x: 13 * root.ps - 42
+        y: 46 + root.ps*2 +30
+    Wall :
+        size_hint: 1/300,65/root.wh
+        x: 13 * root.ps - 27
+        y: 46 + root.ps*2 +15
+    Wall :
+        size_hint: 1/300,19/root.wh
+        x: 13 * root.ps - 27
+        y: 46 + root.ps
+#----------------------------------------Player------------------------------------------
+    Player:
+        id: pacman_player
+        pos: 1,164
+    
+    Ghost:
+        id: ghost_1
+        pos: 362, 172
+    
+    Ghost:
+        id: ghost_2
+        pos: 1122, 164
+    
+    Ghost:
+        id: ghost_3
+        pos: 875, 140
+    
+    Ghost:
+        id: ghost_4
+        pos: 875, 274
+
+    Powerball:
+        id: powerball_1
+        x: 372
+        y: 202
+    
+    Powerball:
+        id: powerball_2
+        x: 872
+        y: 170
