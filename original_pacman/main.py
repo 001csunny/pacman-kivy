@@ -68,6 +68,8 @@ class GamePlay(Screen):
             if self.powerball2.collide_player(self.pacman):
                 self.remove_widget(self.powerball2)
                 self.pacman.powerup = 1
+            if self.pacman.score >= 180 :
+                self.game_progress = 'Win'
 
             for i in reversed(range(len(eaten))):
                 if (self.pacman.pos[0] <= food[eaten[i]][0] - 20) and (
@@ -76,7 +78,6 @@ class GamePlay(Screen):
                         self.pacman.pos[1] >= food[eaten[i]][1] - 50):
                     self.remove_widget(globals()['point{0}'.format(eaten[i])])
                     del eaten[i]
-                    # when food is eaten score is updated
                     self.pacman.score += 1
 
             for gost in [self.ghost1, self.ghost2]:
@@ -88,16 +89,17 @@ class GamePlay(Screen):
                 else:
                     if distance(self.pacman.pos,gost.pos) <= 77/2:
                         self.remove_widget(gost)
-                        # basically after consuming powerball we have the ability to eat the ghosts :)
                         gost.pos = [0,0]
                         del gost
                         self.pacman.powerup = 0
-                        # lets also add score points when we eat a ghost :)
-                        self.pacman.score += 200
+                        self.pacman.score += 10
 
         else:
             if self.game_progress == 'Lost':
                 label = Label(text='GAME OVER\nSCORE={0}'.format(self.pacman.score),font_size=200)
+                self.add_widget(label)
+            elif self.game_progress == 'Win' or self.pacman.score >= 180 :
+                label = Label(text='CONGRATRUATION YOU WIN!!!'.format(self.pacman.score),font_size=70)
                 self.add_widget(label)
             else:
                 label = Label(text='NICE TRY\nSCORE={0}'.format(self.pacman.score),font_size=200)
