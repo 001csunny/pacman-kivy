@@ -68,7 +68,7 @@ class GamePlay(Screen):
             if self.powerball2.collide_player(self.pacman):
                 self.remove_widget(self.powerball2)
                 self.pacman.powerup = 1
-            if self.pacman.score >= 550 :
+            if self.pacman.score >= 590 :
                 self.game_progress = 'Win'
 
             for i in reversed(range(len(eaten))):
@@ -91,16 +91,18 @@ class GamePlay(Screen):
                         self.remove_widget(gost)
                         gost.pos = [0,0]
                         del gost
-                        self.pacman.powerup = 0
+                        self.pacman.powerup =0
                         self.pacman.score += 200
 
         else:
-            if self.game_progress == 'Lost':
-                label = Label(text='GAME OVER\nSCORE={0}'.format(self.pacman.score),font_size=200)
-                self.add_widget(label)
-            elif self.game_progress == 'Win' or self.pacman.score >= 550 :
+            if self.game_progress == 'Win' or self.pacman.score >= 590 :
                 label = Label(text='CONGRATRUATION YOU WIN!!!'.format(self.pacman.score),font_size=70)
                 self.add_widget(label)
+            
+            elif self.game_progress == 'Lost':
+                label = Label(text='GAME OVER\nSCORE={0}'.format(self.pacman.score),font_size=200)
+                self.add_widget(label)
+            
             else:
                 label = Label(text='NICE TRY\nSCORE={0}'.format(self.pacman.score),font_size=200)
                 self.add_widget(label)
